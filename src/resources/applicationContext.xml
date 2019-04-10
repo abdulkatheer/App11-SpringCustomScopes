@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="a1" class="beans.Aadhar" scope="thread">
+        <property name="id" value="101"/>
+        <property name="firstName" value="Mohideen Abdul Katheer"/>
+        <property name="lastName" value="Mohamed Amsa"/>
+        <property name="address" value="Dindigul"/>
+        <property name="dob" value="02-06-1998"/>
+    </bean>
+
+    <bean id="threadScope" class="scopes.ThreadScope"/>
+
+    <bean id="scope" class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="thread" value-ref="threadScope"/>
+            </map>
+        </property>
+    </bean>
+</beans>
